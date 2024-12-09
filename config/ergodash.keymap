@@ -20,7 +20,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        Colemac {
             /* QWERTY
  * .----------------------------------------------------------------------------------------------------------------------.
  * |  `   |   1  |   2  |   3  |   4  |   5  |  [   |                    |  ]   |   6  |   7  |   8  |   9  |   0  | PScr |
@@ -36,15 +36,25 @@
  */
 
             bindings = <
-&kp GRAVE  &kp N1    &kp N2     &kp N3     &kp N4  &kp N5  &kp LBKT                                       &kp RBKT   &kp N6  &kp N7         &kp N8         &kp N9     &kp N0         &kp LA(LC(T))
-&kp ESC    &kp Q     &kp W      &kp F      &kp P   &kp B   &kp MINUS                                      &kp EQUAL  &kp J   &kp L          &kp U          &kp Y      &kp SEMICOLON  &kp BSLH
-&kp TAB    &kp A     &kp R      &kp S      &kp T   &kp G   &kp DEL                                        &kp BSPC   &kp M   &kp N          &kp E          &kp I      &kp O          &kp RIGHT_SHIFT
-&kp LSHFT  &kp Z     &kp X      &kp C      &kp D   &kp V              &kp END                &kp HOME                &kp K   &kp H          &kp COMMA      &kp DOT    &kp SLASH      &kp SQT
-&kp LCTRL  &kp LALT  &kp PG_DN  &kp LMETA  &none           &kp SPACE  &lt LOWER EXCLAMATION  &lt RAISE B  &kp RET            &kp BACKSPACE  &kp RIGHT_ALT  &kp PG_UP  &kp INS        &kp RCTRL
+&kp GRAVE  &kp N1    &kp N2     &kp N3     &kp N4  &kp N5  &kp LBKT                                &kp RBKT   &kp N6  &kp N7         &kp N8         &kp N9     &kp N0         &kp LA(LC(T))
+&kp ESC    &kp Q     &kp W      &kp F      &kp P   &kp B   &kp MINUS                               &kp EQUAL  &kp J   &kp L          &kp U          &kp Y      &kp SEMICOLON  &kp BSLH
+&kp TAB    &kp A     &kp R      &kp S      &kp T   &kp G   &kp DEL                                 &kp BSPC   &kp M   &kp N          &kp E          &kp I      &kp O          &kp RIGHT_SHIFT
+&kp LSHFT  &kp Z     &kp X      &kp C      &kp D   &kp V              &tog 1             &kp HOME             &kp K   &kp H          &kp COMMA      &kp DOT    &kp SLASH      &kp SQT
+&kp LCTRL  &kp LALT  &kp PG_DN  &kp LMETA  &none           &kp SPACE  &lt 2 EXCLAMATION  &lt 3 B   &kp RET            &kp BACKSPACE  &kp RIGHT_ALT  &kp PG_UP  &kp INS        &kp RCTRL
             >;
         };
 
-        lower_layer {
+        Qwerty {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans     &trans   &trans    &trans
+&trans  &kp Q   &kp W   &kp E   &kp R   &kp T   &trans                  &trans  &kp Y   &kp U   &kp I      &kp O    &kp P     &trans
+&trans  &kp A   &kp S   &kp D   &kp F   &kp G   &trans                  &trans  &kp H   &kp J   &kp K      &kp L    &kp SEMI  &trans
+&trans  &kp Z   &kp X   &kp C   &kp V   &kp B           &trans  &trans          &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans          &trans  &trans     &trans   &trans    &trans
+            >;
+        };
+
+        Navigation {
             /* .----------------------------------------------------------------------------------------------------------------------.
  * |  F11 |  F1  |  F2  |  F3  |  F4  |  F5  |      |                    |      |  F6  |  F7  |  F8  |  F9  |  F10 |  F12 |
  * |------+------+------+------+------+------+------+--------------------+------+------+------+------+------+------+------|
@@ -58,11 +68,11 @@
  * .----------------------------------------------------------------------------------------------------------------------.
  */ /* FIXME boot and reset are not yet locale aware */
             bindings = <
-&kp F11  &kp F1       &kp F2      &kp F3  &kp F4  &kp F5  &none                  &none  &kp F6  &kp F7    &kp F8          &kp F9     &kp F10              &kp F12
-&none    &none        &none       &none   &none   &none   &none                  &none  &none   &none     &kp UP_ARROW    &none      &none                &kp C_AC_DESKTOP_SHOW_ALL_APPLICATIONS
-&none    &none        &none       &none   &none   &none   &none                  &none  &none   &kp LEFT  &kp DOWN_ARROW  &kp RIGHT  &kp C_KBIA_NEXT_GRP  &none
-&trans   &bootloader  &sys_reset  &none   &none   &none          &none   &none          &none   &none     &none           &none      &none                &trans
-&trans   &none        &none       &trans  &trans          &none  &trans  &trans  &none          &trans    &none           &none      &none                &trans
+&kp F11  &kp F1       &kp F2      &kp F3  &kp F4  &kp F5  &none                  &none  &kp F6    &kp F7       &kp F8          &kp F9         &kp F10  &kp F12
+&none    &none        &none       &none   &none   &none   &none                  &none  &none     &kp PAGE_UP  &kp UP_ARROW    &kp PAGE_DOWN  &none    &kp C_AC_DESKTOP_SHOW_ALL_APPLICATIONS
+&none    &none        &none       &none   &none   &none   &none                  &none  &kp HOME  &kp LEFT     &kp DOWN_ARROW  &kp RIGHT      &kp END  &none
+&trans   &bootloader  &sys_reset  &none   &none   &none          &none   &none          &none     &none        &none           &none          &none    &trans
+&trans   &none        &none       &trans  &trans          &none  &trans  &trans  &none            &trans       &none           &none          &none    &trans
             >;
         };
 
@@ -86,6 +96,18 @@
 &trans  &none         &none         &none         &none         &none              &none   &none              &none  &none   &none  &bootloader  &sys_reset  &trans
 &trans  &none         &none         &trans        &trans               &none       &trans  &trans  &none             &trans  &none  &none        &none       &trans
             >;
+        };
+
+        Colemac {
+            bindings = <
+&kp GRAVE  &kp N1    &kp N2     &kp N3     &kp N4  &kp N5  &kp LBKT                                &kp RBKT   &kp N6  &kp N7         &kp N8         &kp N9     &kp N0         &kp LA(LC(T))
+&kp ESC    &kp Q     &kp W      &kp F      &kp P   &kp B   &kp MINUS                               &kp EQUAL  &kp J   &kp L          &kp U          &kp Y      &kp SEMICOLON  &kp BSLH
+&kp TAB    &kp A     &kp R      &kp S      &kp T   &kp G   &kp DEL                                 &kp BSPC   &kp M   &kp N          &kp E          &kp I      &kp O          &kp RIGHT_SHIFT
+&kp LSHFT  &kp Z     &kp X      &kp C      &kp D   &kp V              &kp END            &kp HOME             &kp K   &kp H          &kp COMMA      &kp DOT    &kp SLASH      &kp SQT
+&kp LCTRL  &kp LALT  &kp PG_DN  &kp LMETA  &none           &kp SPACE  &lt 2 EXCLAMATION  &lt 3 B   &kp RET            &kp BACKSPACE  &kp RIGHT_ALT  &kp PG_UP  &kp INS        &kp RCTRL
+            >;
+
+            label = "Layout";
         };
     };
 };
