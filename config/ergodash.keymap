@@ -90,24 +90,12 @@
  * .----------------------------------------------------------------------------------------------------------------------.
  */ /* FIXME boot and reset are not yet locale aware */
             bindings = <
-&none   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none  &bt BT_CLR                  &soft_off  &none  &none   &none  &none        &none       &none
-&none   &none         &none         &none         &none         &none  &none                       &none      &none  &none   &none  &none        &none       &none
-&none   &none         &none         &none         &none         &none  &none                       &none      &none  &none   &none  &none        &none       &none
-&trans  &none         &none         &none         &none         &none              &none   &none              &none  &none   &none  &bootloader  &sys_reset  &trans
-&trans  &none         &none         &trans        &trans               &none       &trans  &trans  &none             &trans  &none  &none        &none       &trans
+&none   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none  &bt BT_CLR                  &soft_off    &none  &none   &none  &none        &none       &none
+&none   &none         &none         &none         &none         &none  &none                       &bootloader  &none  &none   &none  &none        &none       &none
+&none   &none         &none         &none         &none         &none  &none                       &sys_reset   &none  &none   &none  &none        &none       &none
+&trans  &none         &none         &none         &none         &none              &none   &none                &none  &none   &none  &bootloader  &sys_reset  &trans
+&trans  &none         &none         &trans        &trans               &none       &trans  &trans  &none               &trans  &none  &none        &none       &trans
             >;
-        };
-
-        Colemac {
-            bindings = <
-&kp GRAVE  &kp N1    &kp N2     &kp N3     &kp N4  &kp N5  &kp LBKT                                &kp RBKT   &kp N6  &kp N7         &kp N8         &kp N9     &kp N0         &kp LA(LC(T))
-&kp ESC    &kp Q     &kp W      &kp F      &kp P   &kp B   &kp MINUS                               &kp EQUAL  &kp J   &kp L          &kp U          &kp Y      &kp SEMICOLON  &kp BSLH
-&kp TAB    &kp A     &kp R      &kp S      &kp T   &kp G   &kp DEL                                 &kp BSPC   &kp M   &kp N          &kp E          &kp I      &kp O          &kp RIGHT_SHIFT
-&kp LSHFT  &kp Z     &kp X      &kp C      &kp D   &kp V              &kp END            &kp HOME             &kp K   &kp H          &kp COMMA      &kp DOT    &kp SLASH      &kp SQT
-&kp LCTRL  &kp LALT  &kp PG_DN  &kp LMETA  &none           &kp SPACE  &lt 2 EXCLAMATION  &lt 3 B   &kp RET            &kp BACKSPACE  &kp RIGHT_ALT  &kp PG_UP  &kp INS        &kp RCTRL
-            >;
-
-            label = "Layout";
         };
     };
 };
